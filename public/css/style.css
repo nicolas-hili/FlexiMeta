@@ -1,0 +1,327 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+  padding:0;
+  margin:0;
+}
+
+.modal {
+    z-index: 1150;
+}
+
+.modal-backdrop {
+    z-index: 1149;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-bottom: 1px solid #e7e7e7 !important;
+    z-index: 1100;
+    background-color: #f8f8f8;
+    box-sizing:border-box;
+    border: none;
+    height:50px;
+}
+
+#wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    opacity: 0.6;
+    display: none;
+    z-index: 2000;
+}
+
+#wrap.display {
+}
+
+.simpson {
+    position: absolute;
+    transition-duration: 0.5s;
+    z-index: 2100;
+}
+
+.simpson#Bart {
+    top: 50%;
+    margin-top: -150px;
+    left: -300px;
+}
+
+.simpson.appear#Bart {
+    left: 150px;
+}
+
+.simpson#Marge {
+    top: 100%;
+    margin-top: 0px;
+    left: 50%;
+    margin-left:-150px;
+}
+
+.simpson.appear#Marge {
+    margin-top: -463px;
+}
+
+.simpson#Lisa {
+    width: 200px;
+    left: 100%;
+    top: 50%;
+    margin-top:-244px;
+}
+
+.simpson.appear#Lisa {
+    margin-left: -200px;
+}
+
+.popover {
+    z-index: 2200;
+    max-width: 576px;
+}
+
+.navbar-toggle {
+    float: left;
+    margin-left: 25px;
+    background-color: #fff;
+}
+
+.navbar-toggle.right {
+  float: right;
+  margin-right: 25px;
+}
+
+  .navbar-toggle {
+    display: block; /* force showing the toggle */
+  }
+.navbar.navbar-default.navbar-fixed-top {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+}
+
+#containerId, .navbar, .navmenu, .offcanvas {
+    -moz-transition: all 0.3s ease-out;  /* FF4+ */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.3s ease-out;  /* IE10 */
+    transition: all 0.3s ease-out;  
+}
+
+.offcanvas {
+    border-color: #e7e7e7;
+    background-color: #f8f8f8;
+    display:block;
+}
+
+.offcanvas.navmenu-fixed-left {
+    margin-left: -300px;
+}
+
+.offcanvas.navmenu-fixed-right {
+    margin-right: -300px;
+}
+
+#containerId {
+    position: relative;
+    height: calc(100% - 50px);
+    padding: 0;
+    margin: 0;
+}
+
+.canvas-slid.in {
+    margin-left: 0px !important;
+}
+
+
+#containerId > .row {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 50%;
+    overflow: auto;
+    position: relative;
+}
+
+#containerId > .row:first-child {
+    border-bottom: 15px solid #e7e7e7;
+}
+
+#editor {
+    width: 200%;
+    height: 200%;
+    overflow: auto;
+    background-color:#ddd;
+}
+
+.row > .col-md-6 {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.row > .col-md-6:first-child {
+    border-right: 5px solid #e7e7e7;
+}
+
+.row > .col-md-6:last-child {
+    border-left: 5px solid #e7e7e7;
+}
+
+.row > .col-md-6 > pre  {
+    overflow: auto;
+    height: 100%;
+}
+
+.row > .col-md-6 a span {
+    margin-right: 5px;
+}
+
+.row > .col-md-6 a  {
+    opacity: 0;
+    -moz-transition: all 0.3s ease-out;  /* FF4+ */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.3s ease-out;  /* IE10 */
+    transition: all 0.3s ease-out;  
+}
+
+.row > .col-md-6:hover a  {
+    opacity: 1;
+}
+
+/* PRETTIFY */
+pre {
+    background-color: ghostwhite;
+    border: 1px solid silver;
+    margin: 0;
+}
+
+.json-key {
+    color: brown;
+}
+
+.json-value {
+    color: navy;
+}
+
+.json-string {
+    color: olive;
+}
+
+#chartjs-tooltip {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    background: rgba(0, 0, 0, .7);
+    color: white;
+    width: 200px;
+    padding: 3px;
+    border-radius: 3px;
+    -webkit-transition: all .1s ease;
+    transition: all .1s ease;
+    pointer-events: none;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+#chartjs-tooltip.left {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+#chartjs-tooltip.left:before {
+    border: solid;
+    border-color: transparent #111;
+    border-color: transparent rgba(0, 0, 0, .8);
+    border-width: 8px  0px 8px 8px;
+    top: 50%;
+    content: "";
+    display: block;
+    left: 100%;
+    margin-left:0px;
+    margin-top:-3px;
+    position: absolute;
+    z-index: 99;
+}
+
+.links {
+    float: right;
+    font-size: 13px;
+    opacity: 0;
+    -moz-transition: all 0.3s ease-out;  /* FF4+ */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.3s ease-out;  /* IE10 */
+    transition: all 0.3s ease-out;  
+}
+
+.nav.navmenu-nav li.navmenu-brand:hover .links {
+    opacity: 1;
+}
+
+.navmenu-brand {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#modelExplorerContent, #problemExplorerContent {
+    height: calc(50% - 80px);
+    overflow: auto;
+    position: relative;
+}
+
+#problemExplorerContent {
+    margin: 0 10px;
+}
+
+#menu-right > ul, #menu-left > ul {
+    margin-bottom:0;
+    height: 100%;
+    overflow: auto;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #ffaf5c;
+    border-color: #c2884b;
+}
+
+#phaseContent, #metamodelContent, #helpContent {
+/*    height: calc(33% - 50px); */
+    height: calc(50% - 50px);
+}
+
+.divider-vertical {
+    height: 50px;
+    margin: 0 9px;
+    border-left: 1px solid #F2F2F2;
+    border-right: 1px solid #FFF;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.navmenu-fixed-left, .navmenu-fixed-right {
+    width: 300px;
+}
+
+.jstree-node {
+    width:90%;
+}
+
+.context-menu-list {
+    z-index: 1032 !important;
+}

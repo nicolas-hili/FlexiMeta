@@ -1,0 +1,161 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>FlexiMeta</title>
+        <meta name="author" content="Nicolas Hili">
+
+        <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/jasny-bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/jstree.min.css" />
+        <link rel="stylesheet" href="css/jquery.contextMenu.min.css" />
+        <link href="css/style.css" rel="stylesheet" />
+
+    </head>
+
+    <body data-disableScrolling="true" class="body">
+
+<nav class="navbar navbar-default">
+          <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#menu-left" data-canvas="#containerId">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <button type="button" class="navbar-toggle right navbar-right" data-toggle="offcanvas" data-target="#menu-right" data-canvas="#containerId">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">FlexiMeta</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav">
+          <li class="divider-vertical"></li>
+          <li><a href="#" id="save"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</a></li>
+          <!--  <li><a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export</a></li> -->
+        <li><a href="#" id="privacy"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span> Reviewer Privacy</a></li>
+        <!--   <li><a href="#" id="talk"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li> -->
+        <li><a href="#" id="repeat"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Restart</a></li>
+        <li><a href="#" id="saving"></a></li>
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+
+        <div id="containerId">
+
+
+        <div class="navmenu-fixed-left offcanvas" id="menu-left">
+          <ul class="nav navmenu-nav">
+            <li id="modelExplorer" class="navmenu-brand"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Model Explorer</li>
+            <li id="modelExplorerContent"></li>
+            <li id="validation" class="navmenu-brand"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Validation</li>
+            <li id="problemExplorerContent">
+            </li>
+          </ul>
+        </div>
+
+        <div class="navmenu-fixed-right offcanvas" id="menu-right">
+          <ul class="nav navmenu-nav">
+            <li id="phase" class="navmenu-brand"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Phase</li>
+            <li id="phaseContent">
+            <li>
+            </li>
+            <li id="metamodel" class="navmenu-brand"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Metamodel</li>
+            <li id="metamodelContent">
+                <div class="col-md-10 col-md-offset-1">
+                    <a href="#" class="thumbnail hide">
+                        <img src="img/metamodel.png" data-toggle="modal" data-target="#metamodelModal"/><br />
+<br />
+
+
+                    </a>
+                </div>
+            </li>
+          </ul>
+        </div>
+
+            <div class="row">
+                <canvas id="editor">
+                </canvas>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6" id="jsonExporter">
+                </div>
+                <div class="col-md-6" id="xmlExporter">
+                </div>
+                
+            </div>
+
+        </div><!-- /.container -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="metamodelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Metamodel</h4>
+              </div>
+              <div class="modal-body">
+                <img src="img/metamodel.png" /><br />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="chartjs-tooltip"></div>
+
+
+        <script src="js/lib/jquery-1.12.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/lib/jasny-bootstrap.js"></script>
+        <script src="js/lib/Chart.min.js"></script>
+        <script src="js/lib/jstree.min.js"></script>
+        <script src="js/lib/jquery.ui.position.min.js"></script>
+        <script src="js/lib/jquery.contextMenu.min.js"></script>
+        <script src="js/lib/vkbeautify.js"></script>
+
+        <script class="srcScript" src="js/src/HEADER.js"></script>
+        <script class="srcScript" src="js/src/prettify.js"></script>
+        <script class="srcScript" src="js/src/serializer.js"></script>
+
+        <script class="srcScript" src="js/src/views/jsonExporter.js"></script>
+        <script class="srcScript" src="js/src/views/xmlExporter.js"></script>
+        <script class="srcScript" src="js/src/views/chart.js"></script>
+        <script class="srcScript" src="js/src/views/modelExplorer.js"></script>
+        <script class="srcScript" src="js/src/views/validation.js"></script>
+
+        <script class="srcScript" src="js/src/model/collection.js"></script>
+        <script class="srcScript" src="js/src/model/base.js"></script>
+
+        <script class="srcScript" src="js/src/editor/object.js"></script>
+        <script class="srcScript" src="js/src/editor/grid.js"></script>
+        <script class="srcScript" src="js/src/editor/canvas.js"></script>
+        <script class="srcScript" src="js/src/editor/individual.js"></script>
+        <script class="srcScript" src="js/src/editor/relation.js"></script>
+        <script class="srcScript" src="js/src/Narrator.js"></script>
+        <script class="srcScript" src="js/src/demo.js"></script>
+        <script class="srcScript" src="js/src/ui.js"></script>
+
+        <div class="script">
+        </div>
+
+    </body>
+
+</html>

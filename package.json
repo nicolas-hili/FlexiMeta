@@ -1,0 +1,20 @@
+{
+  "name": "fleximeta",
+  "version": "0.0.1",
+  "description": "FlexiMeta Beta version",
+  "author": "Nicolas Hili <hili@cs.queensu.ca>",
+  "main": "server.js",
+  "dependencies": {
+    "director": "^1.2.8",
+    "fs": "0.0.2",
+    "mongodb": "^2.1.14",
+    "plates": "^0.4.11",
+    "serve-static": "^1.10.2",
+    "session-manager": "^0.1.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-yui-compressor": "^0.4.0"
+  }
+}

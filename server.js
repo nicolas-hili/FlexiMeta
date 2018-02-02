@@ -6,7 +6,7 @@ var http = require('http')
   , db = require('./lib/db.js')
   , simpson = require('./lib/simpson.js')
   , Plates = require('plates')
-  , sessionManager = require('session-manager').create({engine: 'file', directory:'./data/'});
+  , sessionManager = require('session-manager').create({engine: 'file', directory:'./data'});
 
 function showInit() {
 
